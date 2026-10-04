@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env*.local
+.vercel
+.DS_Store
+Thumbs.db
+uploads/videos/*
+!uploads/videos/.gitkeep
+uploads/thumbnails/*
+!uploads/thumbnails/.gitkeep
+!uploads/thumbnails/seed-thumb-*.svg
+database/*.db
+database/*.db-journal
+database/*.db-wal
+database/*.db-shm

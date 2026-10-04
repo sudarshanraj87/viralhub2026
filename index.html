@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Latest Viral Videos 2026 — Trending & Viral Video Platform</title>
+  <meta name="description" content="Discover the latest viral videos of 2026. Watch trending, most viewed, and breaking new video content on our responsive video platform prototype.">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23000000%22/><polygon points=%2240,30 75,50 40,70%22 fill=%22%23ffffff%22/></svg>">
+</head>
+<body>
+
+  <!-- ====================================================================
+       PAGE 1: AGE GATE MODAL / SCREEN
+       Clean, minimal, centered, premium black-and-white aesthetic.
+       Both buttons navigate to the SAME homepage!
+       ==================================================================== -->
+  <section id="ageGateOverlay" class="age-gate-container" role="dialog" aria-modal="true" aria-labelledby="ageGateHeading">
+    <script>
+      (function() {
+        try {
+          if (localStorage.getItem('ageGatePassed') === 'true' || /(?:^|;\s*)ageGatePassed=true/.test(document.cookie)) {
+            document.getElementById('ageGateOverlay').classList.add('hidden');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <div class="age-gate-card">
+      <div class="age-gate-badge" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        </svg>
+      </div>
+
+      <h1 id="ageGateHeading" class="age-gate-title">Latest Viral Videos 2026</h1>
+      <span class="age-gate-subheading">18+ ONLY</span>
+
+      <p class="age-gate-desc">
+        By entering this website, you confirm that you are 18 years of age or older.
+      </p>
+
+      <div class="age-gate-actions">
+        <button id="btnAgeOver18" class="age-gate-btn" type="button" aria-label="Enter site confirming 18 years or older">
+          I AM 18+
+        </button>
+        <button id="btnAgeUnder18" class="age-gate-btn" type="button" aria-label="Enter site under 18 years">
+          I AM UNDER 18
+        </button>
+      </div>
+
+      <p class="age-gate-footer-note">
+        Content verification gate · Prototype demo
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       SITE APP SHELL
+       ==================================================================== -->
+  <div class="site-wrapper" id="siteWrapper">
+
+    <!-- Top Header -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <!-- Brand Logo on Left -->
+        <a href="#home" id="siteBrand" class="site-brand" aria-label="Latest Viral Videos 2026 Homepage">
+          <div class="brand-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </div>
+          <span>Latest Viral Videos</span>
+          <span class="brand-year">2026</span>
+        </a>
+
+        <!-- Desktop Search Bar -->
+        <div class="header-search">
+          <div class="search-input-wrapper">
+            <svg class="search-icon-inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="desktopSearchInput" class="header-search-input" placeholder="Search viral videos..." aria-label="Search viral videos">
+            <button id="desktopSearchClear" class="search-clear-btn" type="button" aria-label="Clear search">✕</button>
+          </div>
+        </div>
+
+        <!-- Header Actions on Right -->
+        <div class="header-actions">
+          <!-- Mobile Search Trigger -->
+          <button id="mobileSearchTrigger" class="icon-btn mobile-search-trigger" type="button" aria-label="Open search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <nav class="header-nav" aria-label="Primary Navigation">
+            <a href="#home" class="nav-link" id="navLinkHome">Home</a>
+            <a href="#trending" class="nav-link" id="navLinkTrending">Trending</a>
+          </nav>
+
+          <!-- Mobile Hamburger Trigger -->
+          <button id="mobileMenuTrigger" class="icon-btn mobile-menu-trigger" type="button" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Category Navigation Bar -->
+    <nav class="category-nav-section" id="categoryNavSection" aria-label="Video Categories">
+      <div class="category-nav-inner" id="categoryPillList">
+        <button class="category-pill active" data-category="latest" type="button">
+          <span>LATEST</span>
+          <span class="category-count" id="countLatest">(12)</span>
+        </button>
+        <button class="category-pill" data-category="trending" type="button">
+          <span>TRENDING</span>
+          <span class="category-count" id="countTrending">(12)</span>
+        </button>
+        <button class="category-pill" data-category="most-viewed" type="button">
+          <span>MOST VIEWED</span>
+          <span class="category-count" id="countMostViewed">(12)</span>
+        </button>
+        <button class="category-pill" data-category="new" type="button">
+          <span>NEW</span>
+          <span class="category-count" id="countNew">(5)</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content" id="mainContent">
+
+      <!-- ====================================================================
+           PAGE 2: HOMEPAGE VIEW
+           ==================================================================== -->
+      <section class="homepage-view" id="homepageView" aria-label="Video Grid Feed">
+        <div class="feed-header">
+          <div class="feed-title-wrapper">
+            <h2 class="feed-title" id="feedTitleHeading">Latest Videos</h2>
+            <span class="feed-subtitle" id="feedSubtitle">Sorted from newest to oldest</span>
+          </div>
+          <div class="feed-count" id="feedCounter">Showing 12 videos</div>
+        </div>
+
+        <!-- Responsive Video Grid -->
+        <div class="video-grid" id="videoGrid" role="feed" aria-busy="false">
+          <!-- Video cards rendered dynamically by js/app.js -->
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           PAGE 3: VIDEO DETAIL VIEW
+           Dedicated responsive video page
+           ==================================================================== -->
+      <section class="video-detail-view" id="videoDetailView" aria-label="Video Player Page">
+        <div class="detail-back-bar">
+          <button id="btnBackToHome" class="btn-back" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Videos
+          </button>
+        </div>
+
+        <div class="detail-layout-grid">
+          <!-- Primary Column: Player + Info -->
+          <div class="detail-primary-col">
+            <!-- Player Container -->
+            <div class="player-container" id="playerContainer">
+              <video id="html5VideoPlayer" class="player-video" playsinline preload="metadata" poster="">
+                <!-- Sample video streams will be dynamically injected or fall back to canvas visualizer -->
+              </video>
+              <canvas id="playerCanvas" class="player-canvas-layer"></canvas>
+
+              <!-- Big Center Play Button Overlay -->
+              <div id="playerBigPlay" class="player-big-play" role="button" aria-label="Play video">
+                <div class="big-play-btn-circle">
+                  <svg id="bigPlayIcon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 20 12 6 21 6 3"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Interactive Controls Bar -->
+              <div class="player-controls" id="playerControls">
+                <!-- Scrubber Progress Bar -->
+                <div class="player-progress-bar" id="playerProgressBar" role="slider" aria-label="Timeline seek slider" tabindex="0">
+                  <div class="progress-buffered" id="progressBuffered"></div>
+                  <div class="progress-played" id="progressPlayed">
+                    <span class="progress-handle"></span>
+                  </div>
+                </div>
+
+                <!-- Controls Buttons Row -->
+                <div class="player-controls-row">
+                  <div class="controls-left">
+                    <button id="btnPlayPause" class="player-btn" type="button" aria-label="Play/Pause">
+                      <svg id="playPauseIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                      </svg>
+                    </button>
+
+                    <button id="btnRewind10" class="player-btn" type="button" aria-label="Rewind 10 seconds">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                      </svg>
+                    </button>
+
+                    <button id="btnForward10" class="player-btn" type="button" aria-label="Forward 10 seconds">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 4v6h-6M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                      </svg>
+                    </button>
+
+                    <div class="volume-wrapper">
+                      <button id="btnMuteToggle" class="player-btn" type="button" aria-label="Mute/Unmute">
+                        <svg id="volumeIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        </svg>
+                      </button>
+                      <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="0.9" aria-label="Volume">
+                    </div>
+
+                    <div class="player-time-display">
+                      <span id="currentTimeDisplay">00:00</span> / <span id="durationDisplay">04:18</span>
+                    </div>
+                  </div>
+
+                  <div class="controls-right">
+                    <select id="speedSelect" class="speed-select" aria-label="Playback Speed">
+                      <option value="0.75">0.75x</option>
+                      <option value="1" selected>1.0x</option>
+                      <option value="1.25">1.25x</option>
+                      <option value="1.5">1.5x</option>
+                      <option value="2">2.0x</option>
+                    </select>
+
+                    <button id="btnFullscreen" class="player-btn" type="button" aria-label="Toggle Fullscreen">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Information Details -->
+            <div class="detail-info-box">
+              <h2 id="detailVideoTitle" class="detail-video-title">Video Title</h2>
+
+              <div class="detail-actions-bar">
+                <!-- Channel details -->
+                <div class="detail-channel-block">
+                  <div class="detail-avatar-large" id="detailChannelAvatar">AF</div>
+                  <div>
+                    <div class="detail-channel-name">
+                      <span id="detailChannelName">Channel Name</span>
+                      <svg class="channel-check-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <div class="detail-channel-subs" id="detailChannelSubs">2.4M subscribers</div>
+                  </div>
+                  <button id="btnSubscribe" class="btn-subscribe" type="button">Subscribe</button>
+                </div>
+
+                <!-- Interaction Actions -->
+                <div class="detail-buttons-group">
+                  <button id="btnLikeVideo" class="action-btn" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                    </svg>
+                    <span id="likeCountDisplay">240K</span>
+                  </button>
+
+                  <button id="btnShareVideo" class="action-btn" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="5" r="3"></circle>
+                      <circle cx="6" cy="12" r="3"></circle>
+                      <circle cx="18" cy="19" r="3"></circle>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    <span>Share</span>
+                  </button>
+
+                  <button id="btnSaveVideo" class="action-btn" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Save</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Description card -->
+              <div class="detail-desc-card">
+                <div class="desc-stats-line">
+                  <span id="detailViewCount">1.4M views</span> · <span id="detailUploadDate">2 hours ago</span> · <span id="detailBadge">8K HDR</span>
+                </div>
+                <p id="detailDescription" class="desc-text">Video description content...</p>
+              </div>
+
+              <!-- Interactive Comments Section -->
+              <section class="comments-section" aria-label="Video Comments">
+                <h3 class="comments-header">
+                  <span>Comments</span>
+                  <span id="commentsCount" style="font-weight: 500; font-size: 0.9375rem; color: var(--text-secondary);">(148)</span>
+                </h3>
+
+                <form id="commentForm" class="comment-input-box">
+                  <input type="text" id="newCommentInput" class="comment-input" placeholder="Add a public comment..." required>
+                  <button type="submit" class="btn-post-comment">Comment</button>
+                </form>
+
+                <div class="comments-list" id="commentsList">
+                  <!-- Demo comments dynamically rendered -->
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- Secondary Column: Related Videos Feed -->
+          <aside class="detail-sidebar" aria-label="Related Videos">
+            <h3 class="related-title">Up Next</h3>
+            <div class="related-video-list" id="relatedVideoList">
+              <!-- Related video cards rendered by js/app.js -->
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-text">
+          © 2026 Latest Viral Videos · Frontend Prototype · All fictional demo media
+        </p>
+        <div class="footer-links">
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#latest" class="footer-link">Latest</a>
+          <a href="#trending" class="footer-link">Trending</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop" id="drawerBackdrop">
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <span class="drawer-title">Navigation</span>
+        <button id="btnCloseDrawer" class="icon-btn" type="button" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="#home" class="drawer-link" id="drawerLinkHome">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Home Feed
+        </a>
+        <a href="#latest" class="drawer-link" id="drawerLinkLatest">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Latest
+        </a>
+        <a href="#trending" class="drawer-link" id="drawerLinkTrending">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          Trending
+        </a>
+        <a href="#most-viewed" class="drawer-link" id="drawerLinkMostViewed">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          Most Viewed
+        </a>
+        <a href="#new" class="drawer-link" id="drawerLinkNew">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          New Releases
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-bar">
+      <input type="search" id="modalSearchInput" class="modal-search-input" placeholder="Search 2026 viral videos..." aria-label="Search videos">
+      <button id="btnCloseSearchModal" class="icon-btn" type="button" aria-label="Close search">✕</button>
+    </div>
+    <div id="modalSearchResults" class="modal-search-results"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    Link copied to clipboard!
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

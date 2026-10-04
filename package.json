@@ -1,0 +1,35 @@
+{
+  "name": "viralhub-2026",
+  "version": "1.0.0",
+  "description": "Latest Viral Videos 2026 - Production-Quality Responsive Video Website Prototype",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "migrate": "node scripts/migrate_to_neon.js",
+    "migrate:blob": "node scripts/migrate_uploads_to_blob.js"
+  },
+  "keywords": [
+    "video-platform",
+    "prototype",
+    "responsive",
+    "minimal",
+    "2026"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/blob": "^2.8.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "multer": "^2.4.0",
+    "pg": "^8.23.1",
+    "razorpay": "^2.9.8",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "pg-mem": "^3.0.14"
+  }
+}
